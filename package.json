@@ -1,0 +1,29 @@
+{
+  "name": "google-keep",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Sanjay Shankar",
+  "license": "ISC",
+  "scripts": {
+    "dev": "next dev --port 8080",
+    "start": "next start --port 8000",
+    "build": "next build",
+    "format": "prettier \"**/*.+(ts|tsx|md)\"",
+    "type-check": "tsc --project tsconfig.json --pretty --noEmit"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.5.1",
+    "framer-motion": "^4.1.13",
+    "next": "^10.2.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.4",
+    "sass": "^1.32.12"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.5",
+    "prettier": "^2.2.1",
+    "typescript": "^4.2.4"
+  }
+}

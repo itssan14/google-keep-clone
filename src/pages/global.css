@@ -1,0 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font: normal 16px Google Sans, Roboto, RobotoDraft, Helvetica, Arial,
+    sans-serif;
+  outline-color: darkblue;
+}
