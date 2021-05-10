@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import d from './sidebar.module.css';
+import d from './sidebar.module.scss';
 import { useGlobalState } from 'hooks/useGlobalState';
 import { sidebarActions } from 'store';
 
@@ -36,6 +36,11 @@ function SidebarItem({
 
 export default function Sidebar({ isVisible }: { isVisible: boolean }) {
   const [tab, dispatch] = useGlobalState(state => state.sidebar.activeTab);
+
+  if (!isVisible) {
+    return null;
+  }
+
   return (
     <motion.aside
       animate={!isVisible ? { x: -280 } : { x: 0 }}
@@ -45,6 +50,7 @@ export default function Sidebar({ isVisible }: { isVisible: boolean }) {
       <ul className={d.sidebar__item}>
         <SidebarItem
           title="Notes"
+          key="notes"
           active={tab === 'notes'}
           onClick={() => {
             dispatch(sidebarActions.selectTab('notes'));
@@ -57,6 +63,7 @@ export default function Sidebar({ isVisible }: { isVisible: boolean }) {
         <SidebarItem
           active={tab === 'archived'}
           title="Archived"
+          key="archived"
           isTitleVisible={true}
           onClick={() => {
             dispatch(sidebarActions.selectTab('archived'));

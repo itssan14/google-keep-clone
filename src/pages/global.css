@@ -5,4 +5,7 @@
   font: normal 16px Google Sans, Roboto, RobotoDraft, Helvetica, Arial,
     sans-serif;
   outline-color: darkblue;
+  overscroll-behavior-x: none;
+  overscroll-behavior-y: none;
+  -webkit-tap-highlight-color: transparent;
 }

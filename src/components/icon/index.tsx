@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './icon.module.css';
+import styles from './icon.module.scss';
 
 type Event = React.MouseEvent<HTMLButtonElement, MouseEvent>;
 type MenuProps = {
@@ -9,7 +9,7 @@ type MenuProps = {
   style?: Object;
 };
 
-export default function MenuIcon({
+export default function Icon({
   onClick,
   children,
   className,

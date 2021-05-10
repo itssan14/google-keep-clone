@@ -16,3 +16,9 @@
   position: relative;
   vertical-align: middle;
 }
+
+@media screen and (width < 600px) {
+  .logo {
+    display: none;
+  }
+}

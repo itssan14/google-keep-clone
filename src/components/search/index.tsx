@@ -1,19 +1,29 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Icon from 'components/icon';
 import { useRouter } from 'next/router';
-import styles from './search.module.css';
+import styles from './search.module.scss';
 import { useDebouncedAction } from 'hooks/useDebouncedAction';
 
 export default function SearchBox({}) {
   const router = useRouter();
-  const [searchInput, setSearchInput] = React.useState('');
+  let initRef = useRef(true);
+  const [searchInput, setSearchInput] = React.useState<string>(() => {
+    // TODO: Figure out why query is not available from router hook in this case
+    if (typeof window === 'undefined') {
+      return '';
+    } else {
+      return new URL(window.location.href).searchParams.get('search') || '';
+    }
+  });
   const [focused, setFocused] = React.useState(false);
   const inputRef = React.useRef<HTMLInputElement>(null);
 
   useDebouncedAction<string>(searchInput, search => {
-    let query = new URLSearchParams({ search }).toString();
-    let routerProps = search.length ? { query } : {};
-    router.replace(routerProps);
+    if (initRef.current) {
+      let query = new URLSearchParams({ ...router.query, search }).toString();
+      let routerProps = search.length ? { query } : {};
+      router.replace(routerProps);
+    }
   });
 
   return (

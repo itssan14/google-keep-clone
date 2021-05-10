@@ -1,14 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit';
+
+import { cardDataSlice } from './cardData.store';
 import { sidebarSlice } from './sidebar.store';
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
     sidebar: sidebarSlice.reducer,
+    cards: cardDataSlice.reducer,
   },
 });
 
 export const sidebarActions = sidebarSlice.actions;
-export { store };
+export const cardDataActions = cardDataSlice.actions;
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

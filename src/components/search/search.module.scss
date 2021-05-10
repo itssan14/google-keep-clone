@@ -5,7 +5,7 @@
   align-items: center;
   background: #f1f3f4;
   border-radius: 6px;
-  width: 600px;
+  width: 400px;
   margin-left: 10%;
 }
 
@@ -27,4 +27,11 @@
   -webkit-box-sizing: border-box;
   padding-left: 8px;
   box-sizing: border-box;
+}
+
+@media screen and (width < 600px) {
+  .search {
+    margin-left: 2%;
+    width: 100%;
+  }
 }

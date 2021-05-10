@@ -1,15 +1,12 @@
 .header {
   height: 64px;
   padding: 8px;
-  background: ;
+  background: white;
   top: 0;
   display: flex;
   align-items: center;
-  /* border-bottom: 1px solid gray; */
   box-shadow: inset 1px 1px 0 rgb(0 0 0 / 10%), inset 0 -1px 0 rgb(0 0 0 / 7%);
   margin-bottom: 8px;
-}
-
-.icon {
-  height: 28px;
+  position: sticky;
+  z-index: 2;
 }

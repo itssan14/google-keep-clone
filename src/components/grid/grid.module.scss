@@ -1,0 +1,24 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+
+  &:not(&:last-child) {
+    margin-bottom: 32px;
+  }
+}
+
+.gridWrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.label {
+  color: #5f6368;
+  letter-spacing: 0.07272727em;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  line-height: 1rem;
+  text-transform: uppercase;
+  margin: 16px 16px 8px;
+}
