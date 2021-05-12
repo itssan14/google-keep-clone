@@ -10,9 +10,10 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-body {
-  --background: #fff;
+body.light {
   --text-color: #202124;
+  --section-header: #5f6368;
+  --background: #fff;
   --card-border: #e0e0e0;
 
   --tab-selected-background: #feefc3;
@@ -31,6 +32,7 @@ body {
 
 body.dark {
   --text-color: #fff;
+  --section-header: #9aa0a6;
   --background: #202124;
   --card-border: #5f6368;
 
@@ -48,6 +50,10 @@ body.dark {
 
 body.dark svg {
   color: #e8eaed;
+}
+
+body.dark ul li svg {
+  fill: #e8eaed;
 }
 
 body {
