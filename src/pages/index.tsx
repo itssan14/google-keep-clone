@@ -3,12 +3,8 @@ import { Grid } from 'components/grid';
 import CreateNote from 'components/create-note';
 import styles from 'styles/main.module.scss';
 
-function NoResultsFound() {
-  return (
-    <p style={{ display: 'flex', justifyContent: 'center' }}>
-      No matching results.
-    </p>
-  );
+function NoResultsFound({ message = 'No matching results.' }) {
+  return <p className={styles.noResults}>{message}</p>;
 }
 
 export default function MainPage() {
@@ -39,13 +35,17 @@ export default function MainPage() {
       {selectedTab === 'archived' ? (
         archived.length ? (
           <Grid title="Archived" cards={archived} />
-        ) : null
+        ) : (
+          <NoResultsFound message="Your archived notes appear here" />
+        )
       ) : active.length || pinned.length ? (
         <>
           {Boolean(pinned.length) && <Grid title="Pinned" cards={pinned} />}
           {Boolean(active.length) && <Grid title="Others" cards={active} />}
         </>
-      ) : null}
+      ) : (
+        <NoResultsFound message="Notes you add appear here" />
+      )}
     </>
   );
 }

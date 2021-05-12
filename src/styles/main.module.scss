@@ -1,3 +1,10 @@
+.noResults {
+  display: flex;
+  justify-content: center;
+  color: var(--section-header);
+  margin-top: 30vh;
+}
+
 .createFromWrapper {
   width: 500px;
   margin: 0 auto;
