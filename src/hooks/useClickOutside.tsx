@@ -6,7 +6,10 @@ type Event = MouseEvent | TouchEvent;
 export function useClickOutside<I>(cb: Callback) {
   const ref = useRef<I>();
   const cbRef = useRef<Callback>(() => null);
-  cbRef.current = cb;
+
+  useEffect(() => {
+    cbRef.current = cb;
+  }, [cb]);
 
   useEffect(() => {
     function listener(ev: Event) {
