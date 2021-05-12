@@ -5,7 +5,7 @@ import Layout from 'components/layout';
 import EditModal from 'components/editModal';
 
 import { store } from 'store';
-import './global.css';
+import 'styles/global.css';
 
 const appName = process.env.NEXT_PUBLIC_APP_NAME || 'Google Keep';
 export default function App({ Component, pageProps }: AppProps) {

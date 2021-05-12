@@ -1,7 +1,7 @@
 import { useNoteSections } from 'hooks/useNotesSection';
 import { Grid } from 'components/grid';
 import CreateNote from 'components/create-note';
-import styles from '../styles/main.module.scss';
+import styles from 'styles/main.module.scss';
 
 function NoResultsFound() {
   return (
