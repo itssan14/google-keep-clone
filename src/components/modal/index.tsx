@@ -26,7 +26,3 @@ export default function Modal({
     </aside>
   ) : null;
 }
-
-// const [cardData] = useGlobalState<PostDataType>(
-//   state => state.cards.byId[id]
-// );
