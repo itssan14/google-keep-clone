@@ -12,6 +12,7 @@ export function useClickOutside<I>(cb: Callback) {
     function listener(ev: Event) {
       const el = ref?.current;
       // Do nothing if clicking ref's element or descendent elements
+      // @ts-ignore
       if (!el || el?.contains((ev?.target as Node) || null)) return;
       ev.preventDefault();
       cbRef.current(ev);
