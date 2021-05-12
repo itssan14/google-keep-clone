@@ -5,12 +5,16 @@
   width: 280px;
   height: 100vh;
   padding-top: 8px;
-  background: #fff;
+  background: var(--background);
   z-index: 1;
 }
 
 .sidebar__item {
   list-style: none;
+}
+
+body.dark .sidebar__item svg {
+  fill: #fff;
 }
 
 .sidebar__item li {
@@ -19,9 +23,12 @@
   border: 1px solid transparent;
   -webkit-border-radius: 0 25px 25px 0;
   border-radius: 0 25px 25px 0;
-  color: #202124;
+
   display: flex;
   align-items: center;
+  gap: 24px;
+
+  color: var(--text-color);
   letter-spacing: 0.01785714em;
   font-size: 0.875rem;
   font-weight: 500;
@@ -34,21 +41,13 @@
   cursor: pointer;
 }
 
-.sidebar__item a {
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  color: #202124;
-}
-
 .sidebar__item__default:hover,
 .sidebar__item__default:active {
-  background-color: #f1f3f4;
+  background-color: var(--tab-hover-background);
 }
 
 .sidebar__item__active {
-  background-color: #feefc3;
+  background-color: var(--tab-selected-background);
 }
 
 @media screen and (width < 550) {

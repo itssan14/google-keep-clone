@@ -1,5 +1,7 @@
 import { useNoteSections } from 'hooks/useNotesSection';
 import { Grid } from 'components/grid';
+import CreateNote from 'components/create-note';
+import styles from '../styles/main.module.scss';
 
 function NoResultsFound() {
   return (
@@ -29,19 +31,21 @@ export default function MainPage() {
     );
   }
 
-  if (selectedTab === 'archived') {
-    return archived.length ? <Grid title="Archived" cards={archived} /> : null;
-  }
-
-  if (selectedTab === 'notes') {
-    let isVisible = active.length || pinned.length;
-    return isVisible ? (
-      <>
-        {Boolean(pinned.length) && <Grid title="Pinned" cards={pinned} />}
-        {Boolean(active.length) && <Grid title="Others" cards={active} />}
-      </>
-    ) : null;
-  }
-
-  return null;
+  return (
+    <>
+      <div className={styles.createFromWrapper}>
+        <CreateNote />
+      </div>
+      {selectedTab === 'archived' ? (
+        archived.length ? (
+          <Grid title="Archived" cards={archived} />
+        ) : null
+      ) : active.length || pinned.length ? (
+        <>
+          {Boolean(pinned.length) && <Grid title="Pinned" cards={pinned} />}
+          {Boolean(active.length) && <Grid title="Others" cards={active} />}
+        </>
+      ) : null}
+    </>
+  );
 }

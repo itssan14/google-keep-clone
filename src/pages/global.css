@@ -9,3 +9,47 @@
   overscroll-behavior-y: none;
   -webkit-tap-highlight-color: transparent;
 }
+
+body {
+  --background: #fff;
+  --text-color: #202124;
+  --card-border: #e0e0e0;
+
+  --tab-selected-background: #feefc3;
+  --tab-hover-background: #f1f3f4;
+
+  --search-background: #f1f3f4;
+
+  --header-border: inset 1px 1px 0 rgb(0 0 0 / 10%),
+    inset 0 -1px 0 rgb(0 0 0 / 7%);
+
+  --hover-state: rgba(60, 64, 67, 0.08);
+  --create-form-shadow: 0 1px 1px 0 rgb(65 69 73 / 30%),
+    0 1px 3px 1px rgb(65 69 73 / 15%);
+  --create-form-border: transparent;
+}
+
+body.dark {
+  --text-color: #fff;
+  --background: #202124;
+  --card-border: #5f6368;
+
+  --tab-selected-background: #41331c;
+  --tab-hover-background: #28292c;
+
+  --search-background: rgba(241, 243, 244, 0.24);
+
+  --header-border: inset 0 -1px 0 0 #5f6368;
+
+  --hover-state: rgba(232, 234, 237, 0.08);
+  --create-form-shadow: 0 3px 5px rgb(0 0 0 / 20%);
+  --create-form-border: 1px solid #5f6368;
+}
+
+body.dark svg {
+  color: #e8eaed;
+}
+
+body {
+  background: var(--background);
+}

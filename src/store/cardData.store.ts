@@ -1,4 +1,4 @@
-import { createSlice, SliceCaseReducers } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import short from 'shortid';
 import { parse } from 'utils/common';
 
@@ -21,16 +21,11 @@ export type NormalizedPostState = {
 };
 
 let initialData: NormalizedPostState = {
-  byId: {
-    sdx101: { id: 'sdx101', type: 'pinned', content: 'hello, world!' },
-    sdx102: { id: 'sdx102', type: 'archived', content: 'hello, dev!' },
-    sdx103: { id: 'sdx103', type: 'notes', content: 'hello, oops!' },
-    sdx104: { id: 'sdx104', type: 'pinned', content: 'hello, cool!' },
-  },
-  allIds: ['sdx101', 'sdx102', 'sdx103', 'sdx104'],
-  notesIds: ['sdx103'],
-  archivedIds: ['sdx102'],
-  pinnedIds: ['sdx101', 'sdx104'],
+  byId: {},
+  allIds: [],
+  notesIds: [],
+  pinnedIds: [],
+  archivedIds: [],
 };
 
 // Fetch data if
@@ -44,27 +39,33 @@ if (typeof window !== 'undefined') {
   };
 }
 
-const cardDataSlice = createSlice<
-  NormalizedPostState,
-  SliceCaseReducers<NormalizedPostState>,
-  string
->({
+const cardDataSlice = createSlice({
   name: 'Card Data',
   initialState: initialData,
   reducers: {
     addPost: (state, action) => {
       let idx = short.generate();
+      let type = action?.payload?.type ?? 'notes';
       state.byId[idx] = {
         id: idx,
-        type: 'notes',
+        type,
         ...action.payload,
       };
       state.allIds.unshift(idx);
-      state.notesIds.unshift(idx);
+      state[`${type}Ids`].unshift(idx);
     },
     editPost: (state, action) => {
       let { id: idx, ...dataPayload } = action.payload;
+      let newType = dataPayload.type;
+      let existingType = state.byId[idx].type;
+
       state.byId[idx] = { ...state.byId[idx], ...dataPayload };
+      if (newType !== existingType) {
+        state[`${existingType}Ids`] = state[`${existingType}Ids`].filter(
+          id => id !== idx
+        );
+        state[`${newType}Ids`].unshift(idx);
+      }
     },
     deletePost: (state, action) => {
       let idx = action.payload;

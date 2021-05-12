@@ -19,7 +19,7 @@ export default function SearchBox({}) {
   const inputRef = React.useRef<HTMLInputElement>(null);
 
   useDebouncedAction<string>(searchInput, search => {
-    if (initRef.current) {
+    if (!initRef.current) {
       let query = new URLSearchParams({ ...router.query, search }).toString();
       let routerProps = search.length ? { query } : {};
       router.replace(routerProps);
@@ -60,7 +60,10 @@ export default function SearchBox({}) {
         autoComplete="off"
         spellCheck="false"
         value={searchInput}
-        onChange={ev => setSearchInput(ev.target.value)}
+        onChange={ev => {
+          initRef.current = false;
+          setSearchInput(ev.target.value);
+        }}
         className={styles.input}
         placeholder={'Search'}
       />

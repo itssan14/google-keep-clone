@@ -3,9 +3,9 @@
   border: 1px solid transparent;
   display: flex;
   align-items: center;
-  background: #f1f3f4;
+  background: var(--search-background);
   border-radius: 6px;
-  width: 400px;
+  width: 600px;
   margin-left: 10%;
 }
 
@@ -14,19 +14,27 @@
   -webkit-box-shadow: 0 1px 1px 0 rgb(65 69 73 / 30%),
     0 1px 3px 1px rgb(65 69 73 / 15%);
   box-shadow: 0 1px 1px 0 rgb(65 69 73 / 30%), 0 1px 3px 1px rgb(65 69 73 / 15%);
+
+  > * svg {
+    color: unset !important;
+  }
 }
 
 .input {
   background: transparent;
   border: none;
-  -webkit-font-variant-ligatures: none;
   font-variant-ligatures: none;
   height: 46px;
   outline: none;
   width: 100%;
-  -webkit-box-sizing: border-box;
   padding-left: 8px;
   box-sizing: border-box;
+}
+
+@media screen and (width < 900px) {
+  .search {
+    width: 400px;
+  }
 }
 
 @media screen and (width < 600px) {

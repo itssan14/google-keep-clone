@@ -1,4 +1,4 @@
-import { createSlice, SliceCaseReducers } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { parse } from 'utils/common';
 
 type State = { isOpen: boolean; activeTab: 'notes' | 'archived' };
@@ -13,7 +13,7 @@ function writeToStorage(value) {
   window.localStorage.setItem('navigation', JSON.stringify(value));
 }
 
-const sidebarSlice = createSlice<State, SliceCaseReducers<State>, string>({
+const sidebarSlice = createSlice({
   name: 'Sidebar',
   initialState: initialData,
   reducers: {

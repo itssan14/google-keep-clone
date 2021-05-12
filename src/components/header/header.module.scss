@@ -1,12 +1,18 @@
 .header {
   height: 64px;
   padding: 8px;
-  background: white;
+  background: var(--background);
   top: 0;
   display: flex;
   align-items: center;
-  box-shadow: inset 1px 1px 0 rgb(0 0 0 / 10%), inset 0 -1px 0 rgb(0 0 0 / 7%);
+  box-shadow: var(--header-border);
   margin-bottom: 8px;
   position: sticky;
   z-index: 2;
+}
+
+.searchWrapper {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
 }

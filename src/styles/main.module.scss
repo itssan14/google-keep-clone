@@ -1,0 +1,10 @@
+.createFromWrapper {
+  width: 500px;
+  margin: 0 auto;
+}
+
+@media screen and (width < 600px) {
+  .createFromWrapper {
+    width: 100%;
+  }
+}

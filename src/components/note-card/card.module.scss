@@ -1,5 +1,5 @@
 .noteCard {
-  min-height: 116px;
+  height: 116px;
   padding: 16px;
   padding-right: 24px;
 
@@ -24,8 +24,9 @@
   -webkit-transition-timing-function: ease-in;
   transition-timing-function: ease-in;
 
-  background-color: #fff;
-  border-color: #e0e0e0;
+  background-color: var(--background);
+  border-color: var(--card-border);
+  color: var(--text-color);
 
   position: relative;
 
@@ -57,4 +58,22 @@
 
 .editIcon {
   top: 76px;
+}
+
+.title {
+  width: 95%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.content {
+  margin-top: 8px;
+  display: block;
+  display: -webkit-box;
+  width: 95%;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
